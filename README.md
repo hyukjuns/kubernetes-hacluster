@@ -14,9 +14,18 @@ staticPodPath= /etc/kubernetes/manifests 에 꼭 실행되어야 할 파드들�
 즉, 위 경로에 정의되어 있는 파드들은 노드 실행시 자동으로 실행된다.
 ```
 
-## 1. 가상머신사양
+## 1. 호스트 & 가상머신사양
 
-[가상머신사양](https://www.notion.so/bc1f4d14c77a47daa921364ff56f3704)
+- 호스트
+    - 운영체제: Ubuntu 18.04
+    - Cpu Core: 5
+    - Memory: 16GB
+    - HyperVisor: Virt-Manager(qemu/kvm)
+- 가상머신
+    - 운영체제: CentOS7
+    - Cpu Core: 2
+    - Memory: 3072MB
+    - NIC: Nat Network
 
 ## 2.  Requirement
 
