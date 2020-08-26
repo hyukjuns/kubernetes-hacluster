@@ -2,7 +2,7 @@
 
 ref: [https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/)
 
-![images/Untitled.png](iamges/Untitled.png)
+![images/Untitled.png](images/Untitled.png)
 
 ### *Static pod
 
