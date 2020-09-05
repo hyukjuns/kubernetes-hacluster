@@ -1,0 +1,25 @@
+---
+- name: Deploy ha, ka config
+  hosts: control
+  become: yes
+  tasks:
+    - name: Copy keepalived.yaml file to masters
+      copy:
+        src: keepalived.yaml # 스태틱 파드 정의
+        dest: /etc/kubernetes/manifests/keepalived.yaml
+    - name: Copy keepalived.yaml file to masters
+      copy:
+        src: haproxy.yaml # 스태틱 파드 정의
+        dest: /etc/kubernetes/manifests/haproxy.yaml
+    - name: Copy check_apiserver.sh
+      copy:
+        src: keepalived/check_apiserver.sh
+        dest: /etc/keepalived/check_apiserver.sh
+    - name: Copy keepalived.conf
+      copy:
+        src: keepalived/keepalived.conf
+        dest: /etc/keepalived/keepalived.conf
+    - name: Copy dir2
+      copy:
+        src: haproxy
+        dest: /etc/
