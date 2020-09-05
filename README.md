@@ -1,14 +1,7 @@
 # Create High Availability Clusters with kubeadm - 3master, 1node
-<<<<<<< HEAD
 ### 목적
 
 Kubeadm으로 쿠버네티스 클러스터 생성시 3 마스터 노드의 고가용성을 위한 HAProxy를 Static Pod 로써 정의 하여, 클러스터 생성과 동시에 마스터를 위한 HAProxy 서비스를 구현해 낼 수 있다.
-=======
-
-ref: [https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/)
-
-![images/Untitled.png](images/Untitled.png)
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 ### *Static pod
 
@@ -19,12 +12,9 @@ ref: [https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/h
 staticPodPath= /etc/kubernetes/manifests 에 꼭 실행되어야 할 파드들이 정의 되어 있음
 즉, 위 경로에 정의되어 있는 파드들은 노드 실행시 자동으로 실행된다.
 ```
-<<<<<<< HEAD
 ref: [https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/](https://kubernetes.io/ko/docs/setup/production-environment/tools/kubeadm/ha-topology/)
 
 ![images/Untitled.png](images/Untitled.png)
-=======
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 ## 1. 호스트 & 가상머신사양
 
@@ -152,19 +142,11 @@ sudo systemctl enable --now kubelet
 
 ref: [https://github.com/kubernetes/kubeadm/blob/master/docs/ha-considerations.md#options-for-software-load-balancing](https://github.com/kubernetes/kubeadm/blob/master/docs/ha-considerations.md#options-for-software-load-balancing)
 
-<<<<<<< HEAD
 - keepalive: haproxy 파드에 vip 할당해주는 역할
 
 - haproxy: 파드형태로 생성되고 로드밸런서 역할로 마스터노드의 고가용성 구현
 
 ### 1) keepalive, haproxy 설정 파일 생성
-=======
-keepalive: haproxy 파드에 vip 할당해주는 역할
-
-haproxy: 파드형태로 생성되고 로드밸런서 역할로 마스터노드의 고가용성 구현
-
-### 1. keepalive, haproxy 설정 파일 생성
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 - keepalived configuration
 
@@ -277,22 +259,14 @@ haproxy: 파드형태로 생성되고 로드밸런서 역할로 마스터노드�
             # [...]
     ```
 
-<<<<<<< HEAD
 ### 2) keepalive, haproxy static pod 파일 생성(yml)
-=======
-### 2. keepalive, haproxy static pod 파일 생성(yml)
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 For this setup, two manifest files need to be created in /etc/kubernetes/manifests (create the directory first).
 
 - The manifest for keepalived, /etc/kubernetes/manifests/keepalived.yaml:
 
 ```yaml
-<<<<<<< HEAD
 apiVersion: v1
-=======
-`apiVersion: v1
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 kind: Pod
 metadata:
   creationTimestamp: null
@@ -357,11 +331,7 @@ spec:
 status: {}
 ```
 
-<<<<<<< HEAD
 ### 3) master에 ansible-playbook으로 배포
-=======
-### 3. master에 ansible-playbook으로 배포
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 - 마스터 노드에 ansible 배포 준비
 - 설정 파일 및 스태틱 파드 야믈 파일 배포
@@ -397,11 +367,7 @@ status: {}
         dest: /etc/
 ```
 
-<<<<<<< HEAD
 ### 4) master1 에서 kubeadm init 시작
-=======
-### 4. master1 에서 kubeadm init 시작
->>>>>>> 80befa9d35f936af535c9a8095ef38e0124bb112
 
 ref: [https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/high-availability/)
 
