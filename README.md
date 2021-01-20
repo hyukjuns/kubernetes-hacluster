@@ -1,5 +1,5 @@
 # 💥 Create High Availability Clusters with kubeadm 💥
-## [3 master, 1 worker node]
+## 3 master, 1 worker node
 
 # Topology
 
