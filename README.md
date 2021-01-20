@@ -1,4 +1,5 @@
-# Create High Availability Clusters with kubeadm - 3master, 1node
+# 💥 Create High Availability Clusters with kubeadm 💥
+## [3 master, 1 worker node]
 
 # Topology
 
@@ -10,9 +11,11 @@
 
 노드 실행과 동시에 생성되는 파드
 
+```
 /var/lib/kubelet/config.yml 에 staticPodPath가 정의 되어 있음
 staticPodPath= /etc/kubernetes/manifests 에 꼭 실행되어야 할 파드들이 정의 되어 있음
 즉, 위 경로에 정의되어 있는 파드들은 노드 실행시 자동으로 실행된다.
+```
 
 # HandsOn
 
@@ -380,7 +383,7 @@ For this setup, two manifest files need to be created in /etc/kubernetes/manifes
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
 
-- init rollback(init 취소)
+    [🔥 init 취소해야 할 경우 🔥]
 
     ```bash
     master1$ sudo kubectl drain master1 --delete-local-data --force --ignore-daemonsets\
